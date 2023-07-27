@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-dark justify-content-between fixed-top">
+  <div>
+    <a class="navbar-brand text-light" [routerLink]="['/home']" routerLinkActive="router-link-active" >LoanManagement</a>
+    
+    <a style="color: aliceblue; border:2px solid greenyellow; padding: 4px; margin-left: 20px;" [routerLink]="['/available-loans-category']" routerLinkActive="router-link-active"> Available Loans</a>
+    <a style="color: aliceblue; border:2px solid greenyellow; padding: 4px ; margin-left:20px;"  *ngIf="this.userService.roleMatch('admin') && this.isLoggedIn()" [routerLink]="['/admin']" > Admin Panel</a>
+  </div>
+   
+    <div>
+      
+      <button class="btn btn-outline-success " *ngIf="!this.isLoggedIn()" style="margin-right: 2px;" type="submit">logIn</button>
+      
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" type="submit">logout</button>
+      
+    </div>
+  
+  </nav>
